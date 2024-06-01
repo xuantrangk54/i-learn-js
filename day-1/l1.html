@@ -1,0 +1,45 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <script>
+
+            const PRICE_FOR_PHONE = 1000;
+
+            function formatMoney (price) {
+                var strPrice = '$' +  str(price);
+                return strPrice; 
+            }
+
+            function getBalanceInBank () {
+                return 100000000;
+            }
+
+            function getPurchaseAmoutAndTax (purchangeAmout){
+                return purchangeAmout * 110/100;
+            }
+
+            function getPurchaseFor (amount){
+                return getPurchaseAmoutAndTax(PRICE_FOR_PHONE * amount);
+            }
+
+            function main () {
+                debugger;
+                var purchaseAmount = 0;
+                var purchaseAmountAndTax = getPurchaseAmoutAndTax(purchaseAmount);
+                var amount = 0;
+                while (purchaseAmountAndTax<getBalanceInBank()) {
+                    if (getPurchaseFor(amount+1)>getBalanceInBank()){
+                        break;
+                    } else {
+                        amount = amount+1;
+                    }
+                }
+                console.log (`you can buy: ${amount} phone with total price: ${getPurchaseFor(amount)}`);
+            }
+
+            main ();
+        </script>
+    </body>
+</html>
